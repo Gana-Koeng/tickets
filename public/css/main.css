@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family-Montserrat:500');
+
+* {
+   margin:0;
+   padding:0;
+   background-color:#554238;
+}
+li, a, button{
+    
+    font-family:"Montserrat",sans-serif;
+    font-weight:100;
+    font-size:15px;
+    color:#edf0f1;
+    text-decoration:none;}
+header{
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   padding:10px 10%;
+   background-color: rgb(0, 0, 0);
+}
+
+.logo {
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.cta a{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content:flex-end;
+    
+}
+.cta{
+    display: flex;
+    justify-content:flex-end;
+    
+}
+.nav_links{
+    list-style:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+ }
+.nav_links li{
+    display: inline-block;
+    padding-top: 5px;
+ }
+.nav_links li a{
+
+    background-color: dimgray;
+    padding: 5px 35px 5px 35px;
+    transition:all 0.3s ease 0s;
+}
+ .nav_links li a:hover{
+    color:#d2a921
+ }
+button{
+    background-color:dimgray;
+    display:flex;
+    justify-content:space-between;
+    padding:5px 10px;
+    border:none;
+    border-radius:20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.buttonsign{
+
+    padding-right: 10px;
+}
+.register{
+    background-color:rgba(233, 147, 0, 0.865);
+}
+
+button:hover{
+     background-color: rgb(0, 130, 125);
+}
+.mySlides{
+    width: 80%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.showing{
+    position: absolute;
+    top: 82%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+.showing li{
+    display: inline-block;
+    padding-top: 5px;
+ }
+.showing li a{
+    border-radius: 16px;
+    background-color: dimgray;
+    padding: 5px 25px 5px 25px;
+    transition:all 0.3s ease 0s;
+}
+ .showing li a:hover{
+    color:#d2a921
+ }
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 15%;
+    padding: 50px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    text-align: center;
+
+  }
