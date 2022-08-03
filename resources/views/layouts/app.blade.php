@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
     <title>tickets_home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1">
-    <link rel="stylesheet" href=" {{ asset('/css/main.css') }} ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" {{ asset('/css/layout-homepage.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/comingsoon.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/moviedetail.css') }} ">
+    {{-- swiper css  --}}
+    <link rel="stylesheet" href="{{ asset('/css/swiper-bundle.min.css') }} ">
+
 </head>
 
 <body style="background-color: #554238">
@@ -24,18 +30,22 @@
 
         </div>
         <div class="header-bottom">
-                <a onclick="window.location.href='/'" style=cursor:pointer>Home</a>
-                <a href="#">Showtime</a>
-                <a href="#">Coming Soon</a>
-                <a href="#">Contact Us</a>
+            <a href="/">Home</a>
+            <a href="#">Showtime</a>
+            <a href="/comingsoon">Coming Soon</a>
+            <a href="#">Contact Us</a>
         </div>
 
         {{-- bootstrap of logo --}}
     </header>
     <div class="wrapper-body">
-        @yield('content')
+        {{-- <main> --}}
+            @yield('content')
+
+        {{-- </main> --}}
+
     </div>
-    
+
 
     <footer>
         <div class="top-footer">
@@ -77,6 +87,13 @@
         </div>
     </footer>
 
+    <script>
+        $(document).on("click","#cust_btn",function(){
+
+            $("#myModal").modal("toggle");
+            
+          })
+        </script>
 </body>
 
 </html>

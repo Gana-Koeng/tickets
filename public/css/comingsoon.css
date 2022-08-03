@@ -1,0 +1,130 @@
+.card-coming * {
+    font-family: "Coda", cursive;
+}
+
+.card-coming {
+    width: 100%;
+    background-color: #554238;
+    height: 92%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-coming .card1:hover,
+.card-coming .card2:hover,
+.card-coming .card3:hover,
+.card-coming .card4:hover,
+.card-coming .card5:hover,
+.card-coming .card6:hover,
+.card-coming .card7:hover,
+.card-coming .card8:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-coming .card1 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card-coming .card1 img,
+.card-coming .card2 img,
+.card-coming .card3 img,
+.card-coming .card4 img,
+.card-coming .card5 img,
+.card-coming .card6 img,
+.card-coming .card7 img,
+.card-coming .card8 img {
+    width: 100%;
+    height: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-coming .card2 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 7%;
+    transition: 0.3s ease-in-out;
+}
+
+.card-coming .card2 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming .card3 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 6%;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card3 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming .card4 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 7%;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card4 img {
+    width: 100%;
+    height: 80%;
+}
+
+.card-coming .card5 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card5 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming .card6 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 7%;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card6 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming .card7 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 6%;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card7 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming .card8 {
+    width: 20%;
+    height: 45%;
+    background-color: #554238;
+    margin-left: 7%;
+    transition: 0.3s ease-in-out;
+}
+.card-coming .card8 img {
+    width: 100%;
+    height: 80%;
+}
+.card-coming p,
+.card-coming h4 {
+    color: white;
+    text-align: left;
+}

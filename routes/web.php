@@ -15,8 +15,21 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('/frontend/homepage');
 });
+
+Route::get('/comingsoon', function () {
+    return view('/frontend/comingsoon');
+});
+
+Route::get('/moviedetail', function () {
+    return view('/frontend/moviedetail');
+});
+
+
+
+
+
 
 Auth::routes();
   
