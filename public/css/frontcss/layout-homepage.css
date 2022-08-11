@@ -14,16 +14,18 @@ header * {
 header {
     width: 100%;
     height: 14vh;
-    background-color: #554238;
+    background-color: #393939;
     position: sticky;
-    /* top: 0;
-    z-index: 800; */
+    top: 0;
+    z-index: 800;
+    margin-top: -20px;
 }
 header .header-top {
     width: 100%;
     height: 50%;
     background-color: #302b2b;
     display: flex;
+    
 }
 header .header-top .bar-top-left {
     width: 15%;
@@ -33,7 +35,6 @@ header .header-top .bar-top-left {
 
 header .header-top .bar-top-left img {
     width: 230px;
-    height: auto;
     margin-top: 10px;
     margin-left: 30px;
     border-radius: 10px;
@@ -44,17 +45,39 @@ header .header-top .bar-top-right {
     background-color: #302b2b;
     margin-left: 70%;
     text-align: center;
+    display: flex;
+    /* padding-top: 10px;
+    padding-bottom: 15px; */
+    
 }
-.bar-top-right button:hover {
-    background-color: rgb(0, 130, 125);
+.bar-top-right .button-login {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px 15px 0px 15px;
+    background-color: #515151;
+    border-radius: 5px;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
 }
-header .header-top .bar-top-right .register {
+.bar-top-right .button-register {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px 12px 0px 15px;
     background-color: #d3b74b;
+    border-radius: 5px;
     color: black;
+    font-size: 18px;
+    margin-left: 20px;
 }
-header .header-top .bar-top-right .register:hover {
+
+.bar-top-right .button-login:hover,
+.bar-top-right .button-register:hover 
+{
     background-color: rgb(0, 130, 125);
+    
 }
+
 header .header-bottom {
     width: 70%;
     height: 50%;
@@ -64,6 +87,7 @@ header .header-bottom {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 header .header-bottom a {
     margin-left: 11vh;
@@ -85,7 +109,7 @@ button {
     text-decoration: none;
 }
 .bar-top-right button {
-    background-color: #515151;
+    /* background-color: #515151; */
     justify-content: space-between;
     padding: 5px 10px;
     border: none;
@@ -100,7 +124,7 @@ button {
 .wrapper-body {
     width: 100%;
     height: 150vh;
-    background-color: #554238;
+    background-color: #393939;
 }
 
 /* Slide ads */
@@ -108,7 +132,7 @@ button {
     /* margin-bottom: 100%; */
     width: 70%;
     height: 100%;
-    background-color: #554238;
+    background-color: #393939;
     margin: 0 auto;
     margin-top: 2%;
   
@@ -136,18 +160,7 @@ button {
     background-size: cover;
     background-position: center center;
 }
-/* 
-  .carousel .first-slide {
-    
-  }
-  
-  .carousel .second-slide {
-    
-  }
-  
-  .carousel .third-slide {
-    background-image:url("https://images.unsplash.com/photo-1497996377197-e4b9024658a4")
-  } */
+
 
 .first-slide img,
 .second-slide img,
@@ -164,16 +177,17 @@ button {
 .carousel .showing {
     width: 100%;
     height: 60%;
-    background-color: #554238;
+    /* background-color: #554238; */
     
 }
 .showing .btn-showing {
     width: 100%;
-    background-color:#554238;
+    background-color:#393939;
     height: 8%;
     padding-top: 1.5%;
-    /* padding-left: 1%; */
+    padding-left: 30px;
     font-family: "Coda", cursive;
+    /* margin-left: 30px; */
 }
 .showing .btn-showing a {
     color: white;
@@ -188,137 +202,163 @@ button {
     color: black;
     background-color: rgb(0, 130, 125);
 }
-.card-showing * {
+.card-showing{
+    width: 100%;
+    padding: 40px 0;
+    height: 94%;
+    /* background-color: #554238; */
+    
+  }
+  .slide-content{
+    height: 46%;
+    margin: 0 40px;
+    overflow: hidden;
+    margin-top: 17px;
+    
+    
+  
+  }
+  .card:hover {
+    -webkit-transform: scale(1);
+    transform: scale(0.92);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+ 
+  .card-wrapper {
+    display: flex;
+    
+  }
+  .card{
+    width: 25%;
+    height:50%;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    
+    /* background-color: #FFF; */
+  
+  }
+
+  .swiper-slide {
+   
+    /* background-color: red; */
+  
+  }
+ 
+  .image-content{
+    width: 100%;
+    height: 80%;
+    position: relative;
+    row-gap: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* padding: 25px 0;  */
+  }
+  .card-image{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgb(137, 137, 137);
+    margin-bottom: 20px;
+    
+  }
+  .card-image .card-img{
+    height: 100%;
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  .card-content {
+    width: 100%;
+    height: 20%;
+    color: white;
+    
+    /* background-color: #40a3f4; */
+   
+  }
+  
+
+  
+  .swiper-navBtn{
+    /* color: black; */
+    /* background-color: grey; */
+    transition: color 0.3s ease;
+  }
+  .swiper-navBtn:hover{
+    color: grey;
+  }
+  .swiper-navBtn::before,
+  .swiper-navBtn::after{
+    /* color: black; */
+    font-size: 35px;
+  }
+  .swiper-button-next{
+    /* color: black; */
+    right: 0;
+  }
+  .swiper-button-prev{
+    /* color: black; */
+    left: 0;
+  }
+  .swiper-pagination-bullet{
+    background-color: #ececec;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active{
+    background-color: #a1a2a7;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .slide-content{
+      margin: 0 10px;
+    }
+    .swiper-navBtn{
+      display: none;
+    }
+  }
+/* .card-showing * {
     font-family: "Coda", cursive;
 }
 
 .card-showing {
     width: 100%;
-    background-color: #554238;
-    height: 92%;
+    background-color: #feb086;
+    height: 52%;
     margin: 0;
-    padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    
 }
-.card-showing .card1:hover,
-.card-showing .card2:hover,
-.card-showing .card3:hover,
-.card-showing .card4:hover,
-.card-showing .card5:hover,
-.card-showing .card6:hover,
-.card-showing .card7:hover,
-.card-showing .card8:hover {
+.card-showing .cardbox1:hover {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-showing .card1 {
+.card-showing .cardbox1 {
     width: 20%;
-    height: 45%;
+    height: 50%;
     background-color: #554238;
     transition: 0.3s ease-in-out;
-}
+    padding-bottom: 5px;
+    margin-right: 60px;
+    
+} */
 
-.card-showing .card1 img,
-.card-showing .card2 img,
-.card-showing .card3 img,
-.card-showing .card4 img,
-.card-showing .card5 img,
-.card-showing .card6 img,
-.card-showing .card7 img,
-.card-showing .card8 img {
+/* .card-showing .cardbox1 img {
     width: 100%;
     height: 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
-.card-showing .card2 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 7%;
-    transition: 0.3s ease-in-out;
-}
-
-.card-showing .card2 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing .card3 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 6%;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card3 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing .card4 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 7%;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card4 img {
-    width: 100%;
-    height: 80%;
-}
-
-.card-showing .card5 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card5 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing .card6 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 7%;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card6 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing .card7 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 6%;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card7 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing .card8 {
-    width: 20%;
-    height: 45%;
-    background-color: #554238;
-    margin-left: 7%;
-    transition: 0.3s ease-in-out;
-}
-.card-showing .card8 img {
-    width: 100%;
-    height: 80%;
-}
-.card-showing p,
-.card-showing h4 {
+/* .card-showing p,
+.card-showing h4,
+.card-showing h5 {
     color: white;
     text-align: left;
-}
+} */
 
-/* swiper */
+.about-us {
+    width: 100%;
+    height: 40%;
+    /* background-color: white; */
+}
 
 /* Float four columns side by side */
 .column {

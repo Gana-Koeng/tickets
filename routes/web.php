@@ -26,6 +26,12 @@ Route::get('/moviedetail', function () {
     return view('/frontend/moviedetail');
 });
 
+Route::get('/showtime', function () {
+    return view('/frontend/showtime');
+});
+Route::get('/seat', function () {
+    return view('/frontend/seat');
+});
 
 
 

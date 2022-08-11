@@ -1,22 +1,29 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
     <title>tickets_home</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width-device-width,initial-scale=1">
+    <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href=" {{ asset('/css/layout-homepage.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/comingsoon.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/moviedetail.css') }} ">
-    {{-- swiper css  --}}
-    <link rel="stylesheet" href="{{ asset('/css/swiper-bundle.min.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/layout-homepage.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/comingsoon.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/moviedetail.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    {{-- swiper css --}}
+    <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
+    {{-- navbar drop down --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
 
 </head>
 
-<body style="background-color: #554238">
+<body style="background-color: #393939">
     <header>
         <div class="header-top">
             <div class="bar-top-left">
@@ -24,14 +31,23 @@
             </div>
 
             <div class="bar-top-right">
-                <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
-                <a href="{{ route('register') }}"><button class="register">Register</button></a>
+                @guest
+                    @if (Route::has('login'))
+                        <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
+                    @endif
+                    @if (Route::has('register'))
+                        <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
+                    @endif
+                    
+                @endguest
+                {{-- <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
+                <a href="{{ route('register') }}"><button class="register">Register</button></a> --}}
             </div>
 
         </div>
         <div class="header-bottom">
             <a href="/">Home</a>
-            <a href="#">Showtime</a>
+            <a href="/showtime">Showtime</a>
             <a href="/comingsoon">Coming Soon</a>
             <a href="#">Contact Us</a>
         </div>
@@ -40,7 +56,7 @@
     </header>
     <div class="wrapper-body">
         {{-- <main> --}}
-            @yield('content')
+        @yield('content')
 
         {{-- </main> --}}
 
@@ -86,14 +102,43 @@
             <a href="/cookie">Cookie Preferences</a>
         </div>
     </footer>
-
+    {{-- js popup video  --}}
     <script>
-        $(document).on("click","#cust_btn",function(){
+        $(document).on("click", "#cust_btn", function() {
 
             $("#myModal").modal("toggle");
-            
-          })
-        </script>
+
+        })
+    </script>
+    <script>
+        window.document.onkeydown = function(e) {
+            if (!e) {
+                e = event;
+            }
+            if (e.keyCode == 27) {
+                lightbox_close();
+            }
+        }
+
+        function lightbox_open() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            window.scrollTo(0, 0);
+            document.getElementById('light').style.display = 'block';
+            document.getElementById('fade').style.display = 'block';
+            lightBoxVideo.play();
+        }
+
+        function lightbox_close() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            document.getElementById('light').style.display = 'none';
+            document.getElementById('fade').style.display = 'none';
+            lightBoxVideo.pause();
+        }
+    </script>
+    
+   
+    
 </body>
+
 
 </html>

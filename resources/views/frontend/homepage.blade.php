@@ -62,19 +62,7 @@
             </a>
         </div>
 
-        <!-- /.carousel -->
-        <script>
-            $(document).ready(function(event) {
-                var top_header = $(".carousel .fill");
-
-                $(window).scroll(function() {
-                    var st = $(this).scrollTop();
-                    top_header.css({
-                        "background-position": "center calc(50% + " + st * 0.5 + "px)";
-                    });
-                });
-            });
-        </script>
+        
         <div class="showing">
 
             <div class="btn-showing">
@@ -84,91 +72,289 @@
                 </ul>
             </div>
 
-
-            {{-- Old swiper --}}
-            <div class="card-showing">
+            <div class="card-showing swiper">
                 {{-- =swiper --}}
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
 
-                <div class="card1" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card2" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card3" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card4" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
 
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
 
-                <div class="card5" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card6" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card7" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
-                <div class="card8" onclick="window.location.href='/moviedetail'" style="cursor: pointer">
-                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                    <p>25-July-2022</p>
-                    <h4>Godzilla</h4>
-                    <h4>120 minutes</h4>
-                </div>
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
 
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
 
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
+
+            {{-- <div class="slide-content">
+                <div class="slider-wrapper">
+                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
+                        style="cursor: pointer">
+                        <div class="image-content">
+                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <p>25-July-2022</p>
+                            <h4>Godzilla</h4>
+                            <h5>120 minutes</h5>
+                        </div>
+                    </div>
+                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
+                        style="cursor: pointer">
+                        <div class="image-content">
+                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <p>25-July-2022</p>
+                            <h4>Godzilla</h4>
+                            <h5>120 minutes</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+
+            </div> --}}
+            {{-- <div class="about-us">
+
+            </div> --}}
+
+
+
         </div>
     </div>
+    <!-- /.carousel -->
+    <script>
+        $(document).ready(function(event) {
+            var top_header = $(".carousel .fill");
 
+            $(window).scroll(function() {
+                var st = $(this).scrollTop();
+                top_header.css({
+                    "background-position": "center calc(50% + " + st * 0.5 + "px)";
+                });
+            });
+        });
+    </script>
+    {{-- Swiper JS --}}
+    <script src="js/swiper-bundle.min.js"></script>
 
-    {{-- <div class="slide">
-            <img class="slides" src="{{asset('/img/batman1.jpg') }}" alt=""> --}}
-    {{-- <img class="slides" src="../img/conjuring2a.jpg"> --}}
-    {{-- <script>
-                var myIndex = 0;
-                carousel();
-
-                function carousel() {
-                    var i;
-                    var x = document.getElementsByClassName("slides");
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-                    myIndex++;
-                    if (myIndex > x.length) {
-                        myIndex = 1
-                    }
-                    x[myIndex - 1].style.display = "block";
-                    setTimeout(carousel, 1500); // Change image every 2 seconds
-                }
-            </script> --}}
-
-    {{-- </div> --}}
+    <script>
+        var swiper = new Swiper(".slide-content", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      });
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

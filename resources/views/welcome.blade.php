@@ -14,7 +14,7 @@
     {{-- //<script src="script.js" defer></script> --}}
     <!-- Styles -->
     <style>
-       
+
     </style>
     <ul>
         <li><a class="active" href="{{ url('/home') }}">Home</a></li>
@@ -42,26 +42,28 @@
     </div>
     {{-- -----------------------Slide-------------------------------------------- --}}
     <form>
-    <div class="w3-content w3-section" style="max-width:100%">
-          <img class="mySlides" src="../img/johnwick4.png" style="width:50%; height:60%" >
-          <img class="mySlides" src="../img/batman1.jpg" style="width:50%; height:60%">
-          <img class="mySlides" src="../img/conjuring2a.jpg" style="width:50%; height:60%">
-        </div> 
-     <script>
-        var myIndex = 0;
-        carousel();
-        
-        function carousel() {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          myIndex++;
-          if (myIndex > x.length) {myIndex = 1}    
-          x[myIndex-1].style.display = "block";  
-          setTimeout(carousel, 1000); // Change image every 2 seconds
-        }
+        <div class="w3-content w3-section" style="max-width:100%">
+            <img class="mySlides" src="../img/johnwick4.png" style="width:50%; height:60%">
+            <img class="mySlides" src="../img/batman1.jpg" style="width:50%; height:60%">
+            <img class="mySlides" src="../img/conjuring2a.jpg" style="width:50%; height:60%">
+        </div>
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {
+                    myIndex = 1
+                }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 1000); // Change image every 2 seconds
+            }
         </script>
     </form>
     {{-- ------------------------------------------------------------------- --}}
