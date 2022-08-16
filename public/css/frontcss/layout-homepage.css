@@ -132,7 +132,7 @@ button {
     /* margin-bottom: 100%; */
     width: 70%;
     height: 100%;
-    background-color: #393939;
+    /* background-color: #920d0d; */
     margin: 0 auto;
     margin-top: 2%;
   
@@ -182,9 +182,9 @@ button {
 }
 .showing .btn-showing {
     width: 100%;
-    background-color:#393939;
+    /* background-color:#b54545; */
     height: 8%;
-    padding-top: 1.5%;
+    padding-top: 35px;
     padding-left: 30px;
     font-family: "Coda", cursive;
     /* margin-left: 30px; */
@@ -205,8 +205,8 @@ button {
 .card-showing{
     width: 100%;
     padding: 40px 0;
-    height: 94%;
-    /* background-color: #554238; */
+    height: 92%;
+    /* background-color: #e28484; */
     
   }
   .slide-content{
@@ -276,40 +276,38 @@ button {
   
 
   
-  .swiper-navBtn{
-    /* color: black; */
-    /* background-color: grey; */
+  .card-showing .swiper-navBtn{
+    color: white;
     transition: color 0.3s ease;
   }
-  .swiper-navBtn:hover{
+  .card-showing .swiper-navBtn:hover{
     color: grey;
   }
-  .swiper-navBtn::before,
-  .swiper-navBtn::after{
-    /* color: black; */
+  .card-showing .swiper-navBtn::before,
+  .card-showing .swiper-navBtn::after{
     font-size: 35px;
   }
-  .swiper-button-next{
+  .card-showing .swiper-button-next{
     /* color: black; */
     right: 0;
   }
-  .swiper-button-prev{
+  .card-showing .swiper-button-prev{
     /* color: black; */
     left: 0;
   }
-  .swiper-pagination-bullet{
-    background-color: #ececec;
+  .card-showing .swiper-pagination-bullet{
+    background-color: grey;
     opacity: 1;
   }
-  .swiper-pagination-bullet-active{
-    background-color: #a1a2a7;
+  .card-showing .swiper-pagination-bullet-active{
+    background-color: white;
   }
   
   @media screen and (max-width: 768px) {
-    .slide-content{
+    .card-showing .slide-content{
       margin: 0 10px;
     }
-    .swiper-navBtn{
+    .card-showing .swiper-navBtn{
       display: none;
     }
   }
