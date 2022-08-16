@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
     {{-- navbar drop down --}}
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
-
+    
 </head>
 
 <body style="background-color: #393939">
@@ -30,19 +30,49 @@
                 <img src="../img/logo.png"alt="logo"style="cursor: pointer" onclick="window.location.href='/'">
             </div>
 
+
             <div class="bar-top-right">
                 @guest
                     @if (Route::has('login'))
-                        <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
                     @endif
+
                     @if (Route::has('register'))
-                        <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
+                        <li class="nav-item">
+                            <div class="regi">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </div>
+                        </li>
                     @endif
-                    
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/home">
+                                {{ __('AdminHome') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                 @endguest
-                {{-- <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
-                <a href="{{ route('register') }}"><button class="register">Register</button></a> --}}
             </div>
+            {{-- <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
+                <a href="{{ route('register') }}"><button class="register">Register</button></a> --}}
+
 
         </div>
         <div class="header-bottom">
@@ -102,7 +132,7 @@
             <a href="/cookie">Cookie Preferences</a>
         </div>
     </footer>
-    {{-- js popup video  --}}
+    {{-- js popup video --}}
     <script>
         $(document).on("click", "#cust_btn", function() {
 
@@ -135,9 +165,9 @@
             lightBoxVideo.pause();
         }
     </script>
-    
-   
-    
+
+
+
 </body>
 
 
