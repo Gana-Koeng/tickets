@@ -76,21 +76,21 @@
                 {{-- =swiper --}}
                 <div class="slide-content">
                     <div class="card-wrapper swiper-wrapper">
-                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                        @foreach ($products as $product)
+                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{$product->id}}">
                             <div class="image-content">
-
                                 <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt="" class="card-img">
+                                    <img src="{{ asset('/image/' .$product->image) }}" alt="" class="card-img">
                                 </div>
                             </div>
-
                             <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
+                                <p>{{$product->date}}</p>
+                                <h4>{{$product->name}}</h4>
+                                <h5>{{$product->duration}}</h5>
                             </div>
                         </div>
-                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
+                        @endforeach
+                        {{-- <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
                             <div class="image-content">
 
                                 <div class="card-image">
@@ -175,8 +175,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-content">
+                </div> --}}
+                {{-- <div class="slide-content">
                     <div class="card-wrapper swiper-wrapper">
                         <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">
                             <div class="image-content">
@@ -277,7 +277,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="swiper-button-next swiper-navBtn"></div>
                 <div class="swiper-button-prev swiper-navBtn"></div>
                 <div class="swiper-pagination"></div>

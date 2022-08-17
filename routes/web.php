@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MovieController;
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,34 +19,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/', function () {
-    return view('/frontend/homepage');
-});
-
-Route::get('/comingsoon', function () {
-    return view('/frontend/comingsoon');
-});
-Route::get('/showtime', function () {
-    return view('/frontend/showtime');
-});
-Route::get('/contact', function () {
-    return view('/frontend/contact');
-});
-
-Route::get('/moviedetail', function () {
-    return view('/frontend/moviedetail');
-});
-
-Route::get('/seat', function () {
-    return view('/frontend/seat');
-});
-
-
-
-
-
+Route::get('/moviedetail/{id}', [ MovieController::class,'show'])->name('moviedetail');
 
 
 
@@ -57,7 +34,7 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
   
-    // Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
   
 /*------------------------------------------

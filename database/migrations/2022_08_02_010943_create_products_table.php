@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('lang');
             $table->text('duration');
             $table->text('genre');
+            $table->text('URL');
             $table->text('date');
             $table->string('image');
             $table->timestamps();

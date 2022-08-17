@@ -1,32 +1,30 @@
 @extends('layouts.app')
 @section('content')
     <div class="moviedetail">
-        <div class="trailer">
-            <h2>Movie Detail</h2>
-            <iframe src="https://www.youtube.com/embed/X0tOpBuYasI" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <div class="video">
+            <div class="trailer">
+                <h2>Movie Detail</h2>
+                <iframe src="{{ $product->URL }}" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
 
             </div>
-        </div>
-        <div class="movie-info">
-            <div class="info-image">
-                <img src="{{ asset('/img/kungfupanda.jpg') }}" alt="">
-            </div>
-            <div class="info-descript">
-                <h2><b>Kongfu Panda 3</b></h2>
-                <i class="bx bxs-calendar"></i>
-                <span>05-Aug-2022</span><br>
-                <i class="bx bxs-time"></i>
-                <span>120 minutes</span><br>
-                <i class="bx bx-movie-play"></i>
-                <span>Comedy</span><br>
-                <i class="bx bxs-megaphone"></i>
-                <span>EN/KH</span><br>
-            </div>
-        </div>
 
+            <div class="movie-info">
+                <div class="info-image">
+                    <img src="{{ asset('/image/' .$product->image) }}" alt="">
+                </div>
+                <div class="info-descript">
+                    <h2><b>{{$product->name}}</b></h2>
+                    <i class="bx bxs-calendar"></i>
+                    <span>{{$product->date}}</span><br>
+                    <i class="bx bxs-time"></i>
+                    <span>{{$product->duration}}</span><br>
+                    <i class="bx bx-movie-play"></i>
+                    <span>{{$product->genre}}</span><br>
+                    <i class="bx bxs-megaphone"></i>
+                    <span>{{$product->lang}}</span><br>
+                </div>
+            </div>
         <div class="movie-showtime">
             <div class="showtime-line">
 
@@ -68,7 +66,7 @@
                         <a href="{{ asset('/seat') }}"><b>19:30</b></a>
                     </ul>
                 </div>
-                
+
             </div>
 
         </div>
