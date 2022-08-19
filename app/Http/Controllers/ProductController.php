@@ -45,7 +45,7 @@ class ProductController extends Controller
             'genre' => 'required',
             'url' => 'required',
             'date' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
         ]);
   
         $input = $request->all();

@@ -62,7 +62,6 @@
             </a>
         </div>
 
-        
         <div class="showing">
 
             <div class="btn-showing">
@@ -173,9 +172,9 @@
                                 <h4>Godzilla</h4>
                                 <h5>120 minutes</h5>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                </div> --}}
+                </div>
                 {{-- <div class="slide-content">
                     <div class="card-wrapper swiper-wrapper">
                         <div class="card swiper-slide" onclick="window.location.href='/moviedetail'">

@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.dashboard.dashbaord')
      
 @section('content')
     <div class="row">
@@ -11,7 +11,7 @@
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create movie</a>
             </div>
         </div>
-    </div>
+   
     
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -59,5 +59,5 @@
     </table>
     
     {!! $products->links() !!}
-
+    </div>
 @endsection
