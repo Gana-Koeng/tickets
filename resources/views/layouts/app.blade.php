@@ -75,7 +75,7 @@
             <a href="/">Home</a>
             <a href="/showtime">Showtime</a>
             <a href="/comingsoon">Coming Soon</a>
-            <a href="#">Contact Us</a>
+            <a href="/contactForm">Contact Us</a>
         </div>
 
         {{-- bootstrap of logo --}}

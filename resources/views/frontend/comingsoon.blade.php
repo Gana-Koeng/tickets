@@ -74,303 +74,189 @@
             </div>
 
             {{-- Old swiper --}}
-            <div id="light">
-                <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
-                <iframe width="1000" height="500" src="https://www.youtube-nocookie.com/embed/H4vQNl4mVTI"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-            <div id="fade" onClick="lightbox_close();"></div>
+            @foreach ($soons as $soon)
+                <div id="light">
+                    <a class="boxclose" id="boxclose" onclick="lightbox_close();+{{$soon->id}}"></a>
+                    <iframe width="1000" height="500" src="{{ $soon->URL }}" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div id="fade" onClick="lightbox_close();"></div>
+                <div class="card-coming swiper">
+                    {{-- =swiper --}}
+                    <div class="slide-content">
+                        <div class="card-wrapper swiper-wrapper">
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div class="card-image">
+                                        <img src="{{ asset('/image/'. $soon->image) }}" alt=""
+                                            onclick="lightbox_open();" class="card-img">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h4>{{ $soon->name }}</h4>
+                                </div>
+                            </div>
+            @endforeach
+            {{-- <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+
+                                <div class="card-image">
+                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
+                                        onclick="lightbox_open();" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <p>25-July-2022</p>
+                                <h4>Godzilla</h4>
+                                <h5>120 minutes</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
            
-            <div class="card-coming swiper">
-                {{-- =swiper --}}
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
-            </div>
+            
         </div>
-        {{-- slide --}}
-        <script>
-            $(document).ready(function(event) {
-                var top_header = $(".carousel .fill");
+    </div>
+    {{-- slide --}}
+    <script>
+        $(document).ready(function(event) {
+            var top_header = $(".carousel .fill");
 
-                $(window).scroll(function() {
-                    var st = $(this).scrollTop();
-                    top_header.css({
-                        "background-position": "center calc(50% + " + st * 0.5 + "px)";
-                    });
+            $(window).scroll(function() {
+                var st = $(this).scrollTop();
+                top_header.css({
+                    "background-position": "center calc(50% + " + st * 0.5 + "px)";
                 });
             });
-        </script>
-        {{-- Swiper JS --}}
-        <script src="js/swiper-bundle.min.js"></script>
-        {{-- swiper --}}
-        <script>
-            var swiper = new Swiper(".slide-content", {
-                slidesPerView: 4,
-                spaceBetween: 20,
-                slidesPerGroup: 4,
-                loop: true,
-                loopFillGroupWithBlank: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                }
-            });
-        </script>
-        {{-- video link --}}
-        <script>
-            window.document.onkeydown = function(e) {
-                if (!e) {
-                    e = event;
-                }
-                if (e.keyCode == 27) {
-                    lightbox_close();
-                }
+        });
+    </script>
+    {{-- Swiper JS --}}
+    <script src="js/swiper-bundle.min.js"></script>
+    {{-- swiper --}}
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
             }
-
-            function lightbox_open() {
-                var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-                window.scrollTo(0, 0);
-                document.getElementById('light').style.display = 'block';
-                document.getElementById('fade').style.display = 'block';
-                lightBoxVideo.play();
+        });
+    </script>
+    {{-- video link --}}
+    <script>
+        window.document.onkeydown = function(e) {
+            if (!e) {
+                e = event;
             }
-
-            function lightbox_close() {
-                var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-                document.getElementById('light').style.display = 'none';
-                document.getElementById('fade').style.display = 'none';
-                lightBoxVideo.pause();
+            if (e.keyCode == 27) {
+                lightbox_close();
             }
-        </script>
+        }
 
-        <script src="https://ajax.googleapis.com/aj ax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <!-- Just to make our placeholder images work.-->
-        <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
-    @endsection
+        function lightbox_open() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            window.scrollTo(0, 0);
+            document.getElementById('light').style.display = 'block';
+            document.getElementById('fade').style.display = 'block';
+            lightBoxVideo.play();
+        }
+
+        function lightbox_close() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            document.getElementById('light').style.display = 'none';
+            document.getElementById('fade').style.display = 'none';
+            lightBoxVideo.pause();
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/aj ax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work.-->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+@endsection
