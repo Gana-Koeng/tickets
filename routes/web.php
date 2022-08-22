@@ -12,6 +12,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\SoonController;
 use App\Http\Controllers\TheaterController;
+use App\Http\Controllers\TestingController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,5 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
   
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
+
+Route::resource('testing', TestingController::class);
