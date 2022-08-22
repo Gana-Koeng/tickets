@@ -1,11 +1,12 @@
 <?php
-  
+
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
-  
-class ProductController extends Controller
+use App\Models\Soon;
+use App\Http\Requests\StoreSoonRequest;
+use App\Http\Requests\UpdateSoonRequest;
+
+class SoonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(3);
+        $soons = Soon::latest()->paginate(3);
     
-        return view('products.index',compact('products'))
+        return view('soons.index',compact('soons'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,24 +28,21 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('soons.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreSoonRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSoonRequest $request)
     {
         $request->validate([
             'name' => 'required',
-            'lang' => 'required',
-            'duration' => 'required',
-            'genre' => 'required',
             'url' => 'required',
-            'date' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
   
         $input = $request->all();
@@ -56,50 +54,47 @@ class ProductController extends Controller
             $input['image'] = "$profileImage";
         }
     
-        Product::create($input);
+        Soon::create($input);
      
-        return redirect()->route('products.index')
+        return redirect()->route('soons.index')
                         ->with('success','Movie created successfully.');
     }
-     
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\Soon  $soon
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Soon $soon)
     {
-        return view('products.show',compact('product'));
+        return view('soons.show',compact('soon'));
     }
-     
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Models\Soon  $soon
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Soon $soon)
     {
-        return view('products.edit',compact('product'));
+        return view('soons.edit',compact('soon'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Movie  $product
+     * @param  \App\Http\Requests\UpdateSoonRequest  $request
+     * @param  \App\Models\Soon  $soon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateSoonRequest $request, Soon $soon)
     {
         $request->validate([
             'name' => 'required',
-            'lang' => 'required',
-            'duration' => 'required',
-            'genre' => 'required',
             'url' => 'required',
-            'date' => 'required',
+
         ]);
   
         $input = $request->all();
@@ -113,23 +108,23 @@ class ProductController extends Controller
             unset($input['image']);
         }
           
-        $product->update($input);
+        $soon->update($input);
     
-        return redirect()->route('products.index')
+        return redirect()->route('soons.index')
                         ->with('success','Movie updated successfully');
     }
-  
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $movie
+     * @param  \App\Models\Soon  $soon
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Soon $soon)
     {
-        $product->delete();
+        $soon->delete();
      
-        return redirect()->route('products.index')
+        return redirect()->route('soons.index')
                         ->with('success','Movie deleted successfully');
     }
 }

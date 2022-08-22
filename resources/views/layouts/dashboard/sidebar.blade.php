@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+        <a class="sidebar-brand brand-logo" href="/"><img src="assets/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="/"><img src="assets/images/logo-mini.svg"
                 alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -73,17 +73,17 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-laptop"></i>
                 </span>
-                <span class="menu-title">Basic UI Elements</span>
+                <span class="menu-title">Theater</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Theater</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Seat</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link"
-                            href="pages/ui-features/typography.html">Typography</a></li>
+                            href="pages/ui-features/typography.html">Commingsoon</a></li>
                 </ul>
             </div>
         </li>
@@ -92,7 +92,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">Form Elements</span>
+                <span class="menu-title">CreateMovie</span>
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -100,7 +100,15 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Slider</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+                <span class="menu-icon">
+                    <i class="mdi mdi-table-large"></i>
+                </span>
+                <span class="menu-title">Contact</span>
             </a>
         </li>
     </ul>

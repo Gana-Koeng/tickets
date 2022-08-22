@@ -1,53 +1,138 @@
+<html>
+<style>
+        * {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+a{
+    color: aliceblue;
+    font-size: 12pt;
+}
+.container {
+  height: 100vh;
+  overflow-x: hidden;
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        body{
-            margin-top: 150px;
-            background-color: #C4CCD9;
-        }
-        i{
-            font-size:90px !important;
-            color:#5D6572;
-            margin-top:20px;
-        }
-        .error-main{
-            background-color: #fff;
-            box-shadow: 0px 10px 10px -10px #5D6572;
-        }
-        .error-main h1{
-            font-weight: bold;
-            color: #444444;
-            font-size: 100px;
-            text-shadow: 2px 4px 5px #6E6E6E;
-        }
-        .error-main h6{
-            color: #42494F;
-        }
-        .error-main p{
-            color: #9897A0;
-            font-size: 14px; 
-        }
-    </style>
-</head>
+.space {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+}
+
+.space > .star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.space > .code {
+  color: white;
+  font-weight: 700;
+  font-size: 64pt;
+  text-align: center;
+  transform-origin: 50% 50%;
+  animation: cubic-bezier(0.000, 0.995, 0.050, 1.000) code-enter 3s, linear code-rotate 30s infinite;
+}
+
+.space > .message {
+  position: absolute;
+  top: 70%;
+  color: white;
+  font-size: 32pt;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes code-enter {
+  0% { margin-right: 200%; }
+  20% { margin-right: 200%; }
+  100% { margin-right: 0%; }
+}
+
+@keyframes code-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
 <body>
     <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-6 offset-lg-3 col-sm-6 offset-sm-3 col-12 p-3 error-main">
-                <div class="row">
-                    <div class="col-lg-8 col-12 col-sm-10 offset-lg-2 offset-sm-1">
-                        <i class="fa fa-frown-o" aria-hidden="true"></i>
-                        <h1 class="m-0">404</h1>
-                        <h6>Page not found</h6>
-                        <a href="/">GO Home</a>
-                    </div>
-                </div>
-            </div>
+        <div class="space">
+          <div class="code">404 </a><img src="https://media0.giphy.com/media/j4fbBhYgu8mNEHkQ4w/200.gif" alt=""style="max-width: 30%;  "><br>
+            <a href="/">Back Home
+          </div>
+          <br><br><br><br><br>
+          <div class="message">
+            
+          </div>
         </div>
-    </div>
+      </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+	// init variables
+	const spaceElement = document.querySelector('.container > .space');
+  const spaceWidth = spaceElement.clientWidth;
+  const messageElement = spaceElement.querySelector('.message');
+  const message = 'Page Not Found';
+  let messageIndex = 0;
+  
+  const starCount = 100;
+  const starMinSize = 1;
+  const starMaxSize = 5;
+  const stars = new Array(starCount).fill(undefined).map(() => {
+  	const element = document.createElement('div');
+    const left = Math.floor(Math.random() * 100) + 1;
+    const top = Math.floor(Math.random() * 100) + 1;
+    const size = Math.floor(Math.random() * starMaxSize) + starMinSize;
+    const speed = -size / spaceWidth * 20;
+    
+    element.classList.add('star');
+    element.style.left = left + '%';
+    element.style.top = top + '%';
+    element.style.width = element.style.height = size + 'px';
+    spaceElement.appendChild(element);
+    
+    return {
+			element,
+      left,
+      top,
+      size,
+      speed
+		}
+  });
+  
+  // update stars
+  setInterval(function () {
+  	for (const star of stars) {
+    	star.left += star.speed;
+			star.element.style.left = star.left + '%';
+      if (star.element.offsetLeft + star.size < 0) {
+      	star.element.style.left = '100%';
+        star.left = 100;
+      }
+		}
+  }, 0);
+  
+  function typeMessage() {
+  	messageElement.textContent += message.substring(messageIndex, messageIndex + 1);
+  }
+  setTimeout(() => {
+  	// type message after code is shown;
+    const typeInterval = setInterval(() => {
+      messageElement.textContent += message.substring(messageIndex, messageIndex + 1);
+      if (++messageIndex >= message.length) {
+        clearInterval(typeInterval);
+      }
+    }, 100); 		
+  }, 2000);
+});
+    </script>
 </body>
+
 </html>
