@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.dashboard.dashbaord')
 
 @section('content')
     <div class="row">
@@ -29,11 +29,34 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Time:</strong>
-                    <input type="time" name="time" class="form-control" placeholder="Time">
+                    <strong>Theater name:</strong>
+                    <input type="text" name="theater" class="form-control" placeholder="theater">
                 </div>
             </div>
-
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Time1:</strong>
+                    <input type="time" name="time1" class="form-control" placeholder="Time1">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Time2:</strong>
+                    <input type="time" name="time2" class="form-control" placeholder="Time2">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Time3:</strong>
+                    <input type="time" name="time3" class="form-control" placeholder="Time3">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Time4:</strong>
+                    <input type="time" name="time4" class="form-control" placeholder="Time4">
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

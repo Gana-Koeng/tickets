@@ -10,6 +10,10 @@ class Product extends Model
     use HasFactory;
   
     protected $fillable = [
-        'name','lang','duration','genre','url','date', 'image'
+        'name','lang','duration','genre','url','date', 'image','theater'
     ];
+
+    public function schedule(){
+        return $this->hasOne(Schedule::class);
+    }
 }

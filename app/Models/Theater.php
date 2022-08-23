@@ -9,6 +9,10 @@ class Theater extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'time'
+        'theater','time1','time2','time3','time4'
     ];
+    
+    public function schedule(){
+        return $this->hasOne(Schedule::class);
+    }
 }

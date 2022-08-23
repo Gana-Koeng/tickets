@@ -74,31 +74,32 @@
             </div>
 
             {{-- Old swiper --}}
-            @foreach ($soons as $soon)
-                <div id="light">
-                    <a class="boxclose" id="boxclose" onclick="lightbox_close();+{{$soon->id}}"></a>
-                    <iframe width="1000" height="500" src="{{ $soon->URL }}" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div id="fade" onClick="lightbox_close();"></div>
-                <div class="card-coming swiper">
-                    {{-- =swiper --}}
-                    <div class="slide-content">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="card swiper-slide">
-                                <div class="image-content">
-                                    <div class="card-image">
-                                        <img src="{{ asset('/image/'. $soon->image) }}" alt=""
-                                            onclick="lightbox_open();" class="card-img">
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <h4>{{ $soon->name }}</h4>
+            <div class="card-showing swiper">
+                {{-- =swiper --}}
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        @foreach ($soons as $soon)
+                        <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{$soon->id}}">
+                            <div class="image-content">
+                                <div class="card-image">
+                                    <img src="{{ asset('/image/' .$soon->image) }}" alt="" class="card-img">
                                 </div>
                             </div>
-            @endforeach
+                            <div class="card-content">
+
+                                <h4>{{$soon->name}}</h4>
+
+                            </div>
+                        </div>
+                        @endforeach
+                    
+                    </div>
+                </div>
+              
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
             {{-- <div class="card swiper-slide">
                             <div class="image-content">
 

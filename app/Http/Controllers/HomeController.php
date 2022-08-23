@@ -2,6 +2,8 @@
   
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Soon;
+use App\Models\Theater;
 use Illuminate\Http\Request;
   
 class HomeController extends Controller
@@ -24,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('frontend.homepage', compact('products'));     
+        return view('frontend.homepage', compact('products'));  
+           
     } 
   
     /**
@@ -34,7 +37,10 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $product = Product::get()->count();
+        $soon = Soon::get()->count();
+        $theater = Theater::get()->count();
+        return view('adminHome',compact('product','soon','theater'));
     }
   
     /**

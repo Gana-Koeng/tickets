@@ -7,7 +7,7 @@
                 <h2> Show movie</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('soons.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('schedules.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -15,20 +15,14 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                {{ $soon->name }}
+                <strong>Movie_ID:</strong>
+                {{ $schedule->movie_id }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>URL:</strong>
-                {{ $soon->URL }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Image:</strong>
-                <img src="/image/{{ $soon->image }}" width="500px">
+                <strong>Theater_ID:</strong>
+                {{ $schedule->theater_id }}
             </div>
         </div>
     </div>

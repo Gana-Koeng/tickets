@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="/"><img src="assets/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="/"><img src="assets/images/logo-mini.svg"
+        <a class="sidebar-brand brand-logo" href="/"><img src="../img/logo.png" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="/"><img src="../img/logo1.png"
                 alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -78,12 +78,12 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Theater</a>
+                    <li class="nav-item"> <a class="nav-link" href="/theaters">Theater</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Seat</a>
+                    <li class="nav-item"> <a class="nav-link" href="/seats">Seat</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link"
-                            href="pages/ui-features/typography.html">Commingsoon</a></li>
+                            href="/soons">Commingsoon</a></li>
                 </ul>
             </div>
         </li>
@@ -96,7 +96,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="sliders">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
@@ -109,6 +109,14 @@
                     <i class="mdi mdi-table-large"></i>
                 </span>
                 <span class="menu-title">Contact</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="schedules">
+                <span class="menu-icon">
+                    <i class="mdi mdi-table-large"></i>
+                </span>
+                <span class="menu-title">Schedule</span>
             </a>
         </li>
     </ul>

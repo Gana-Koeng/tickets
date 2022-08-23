@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SoonfrontController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
@@ -11,9 +10,10 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\SoonController;
+use App\Http\Controllers\SoonfrontController;
 use App\Http\Controllers\TheaterController;
 use App\Http\Controllers\TestingController;
-use App\Models\Product;
+use App\Http\Controllers\ScheduleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,9 @@ use App\Models\Product;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/comingsoon', [SoonfrontController::class, 'index']);
+// Route::get('/movie/{id}', [ TheaterFrontController::class,'index']);
+// Route::get('/movie/{id}', [ TheaterFrontController::class,'show'])->name('moviedetail');
+
 // Route::get('/comingsoon', function(){
    
     
@@ -34,7 +37,6 @@ Route::get('/comingsoon', [SoonfrontController::class, 'index']);
 // });
 
 Route::get('/moviedetail/{id}', [ MovieController::class,'show'])->name('moviedetail');
-
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm']);
@@ -64,6 +66,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('soons', SoonController::class);
     Route::resource('seats', SeatController::class);
     Route::resource('theaters', TheaterController::class);
+    Route::resource('/schedules', ScheduleController::class);
     Route::controller(SliderController::class)->group(function(){
         Route::get('sliders', 'index');
         Route::post('sliders/store', 'store')->name('sliders.store');

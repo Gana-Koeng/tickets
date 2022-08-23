@@ -63,7 +63,7 @@ a{
 <body>
     <div class="container">
         <div class="space">
-          <div class="code">404 </a><img src="https://media0.giphy.com/media/j4fbBhYgu8mNEHkQ4w/200.gif" alt=""style="max-width: 30%;  "><br>
+          <div class="code">៤០៤ </a><img src="https://media0.giphy.com/media/j4fbBhYgu8mNEHkQ4w/200.gif" alt=""style="max-width: 30%;  "><br>
             <a href="/">Back Home
           </div>
           <br><br><br><br><br>
