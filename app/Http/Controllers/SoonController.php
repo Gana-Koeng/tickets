@@ -15,11 +15,12 @@ class SoonController extends Controller
      */
     public function index()
     {
-        $soons = Soon::latest()->paginate(3);
+        $soons = Soon::paginate(5);
     
         return view('soons.index',compact('soons'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+  
 
     /**
      * Show the form for creating a new resource.

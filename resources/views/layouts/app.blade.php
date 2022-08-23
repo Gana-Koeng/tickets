@@ -44,7 +44,7 @@
                     
                 @else
                 <ul>    
-                    <li class="nav-item dropdown" style="">
+                    <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -64,7 +64,7 @@
                                 @csrf
                             </form>
                         </div>
-                    </li>
+                    </div>
                 </ul>
                 @endguest
             </div>
@@ -76,7 +76,7 @@
         <div class="header-bottom">
             <a href="/">Home</a>
             <a href="/showtime">Showtime</a>
-            <a href="/comingsoon">Coming Soon</a>
+            <a href="{{ asset('/comingsoon') }}">Coming Soon</a>
             <a href="/contactForm">Contact Us</a>
         </div>
 

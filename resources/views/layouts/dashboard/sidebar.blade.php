@@ -83,7 +83,7 @@
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Seat</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link"
-                            href="pages/ui-features/typography.html">Commingsoon</a></li>
+                            href="/soons">Commingsoon</a></li>
                 </ul>
             </div>
         </li>

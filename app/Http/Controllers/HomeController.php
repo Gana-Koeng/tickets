@@ -2,6 +2,7 @@
   
 namespace App\Http\Controllers;
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
   
 class HomeController extends Controller
@@ -24,6 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
+        // $newproducts = Product::select()
+        // ->where('id', '>=', 5)
+        // ->get();
         return view('frontend.homepage', compact('products'));     
     } 
   

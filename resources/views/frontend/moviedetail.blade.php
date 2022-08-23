@@ -27,7 +27,7 @@
             </div>
         <div class="movie-showtime">
             <div class="showtime-line">
-
+                {{-- 1 line  --}}
             </div>
             <div class="theater">
                 <div class="theater1">
