@@ -13,6 +13,7 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/moviedetail.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -23,6 +24,12 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    {{-- link icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+    </style>
 </head>
 
 <body style="background-color: #393939">
@@ -74,10 +81,10 @@
 
         </div>
         <div class="header-bottom">
-            <a href="/">Home</a>
-            <a href="/showtime">Showtime</a>
+            <a href="{{ asset('/') }}">Home</a>
+            <a href="{{ asset('/showtime') }}">Showtime</a>
             <a href="{{ asset('/comingsoon') }}">Coming Soon</a>
-            <a href="/contactForm">Contact Us</a>
+            <a href="/contact">Contact Us</a>
         </div>
 
         {{-- bootstrap of logo --}}
@@ -99,8 +106,8 @@
 
                 <a href="/">Home</a><br>
                 <a href="/">Now Showing</a><br>
-                <a href="/">Coming Soon</a><br>
-                <a href="/">Contact Us</a>
+                <a href="/comingsoon">Coming Soon</a><br>
+                <a href="/contact">Contact Us</a>
             </div>
 
             <div class="top-middle-footer">

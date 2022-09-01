@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -74,37 +74,44 @@
             </div>
 
             {{-- Old swiper --}}
-            @foreach ($soons as $soon)
-                <div id="light">
-                    <a class="boxclose" id="boxclose" onclick="lightbox_close();+{{ $soon->id }}"></a>
-                    <iframe width="1000" height="500" src="{{ $soon->URL }}" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div id="fade" onClick="lightbox_close();"></div>
-                <div class="card-coming swiper">
-                    {{-- =swiper --}}
-                    <div class="slide-content">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="card swiper-slide">
-                                <div class="image-content">
-                                    <div class="card-image">
-                                        <img src="{{ asset('/image/' . $soon->image) }}" alt=""
-                                            onclick="lightbox_open();" class="card-img">
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <h4>{{ $soon->name }}</h4>
-                                </div>
+            <div class="card-coming swiper">
+                {{-- =swiper --}}
+                @php
+                    $countSoon = $soons->count();
+                    $rows = $countSoon / 2;
+                @endphp
+
+                @foreach ($soons as $soon)
+                    @if ($loop->first || $loop->index === $rows)
+                        <div class="slide-content">
+                            <div class="card-wrapper swiper-wrapper">
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{ $soon->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
                             </div>
                         </div>
+                        <div class="card-content">
+
+                            <h4>{{ $soon->name }}</h4>
+
+                        </div>
                     </div>
-                </div>
-            @endforeach
+
+                    @if ($loop->index === $rows - 1 || $loop->last)
+            </div>
         </div>
+        @endif
+        @endforeach
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
     </div>
-    {{-- slide --}}
+    </div>
+    </div>
+
+    <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {
             var top_header = $(".carousel .fill");
@@ -119,7 +126,7 @@
     </script>
     {{-- Swiper JS --}}
     <script src="js/swiper-bundle.min.js"></script>
-    {{-- swiper --}}
+
     <script>
         var swiper = new Swiper(".slide-content", {
             slidesPerView: 4,
@@ -137,6 +144,11 @@
             }
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work.-->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+
     {{-- video link --}}
     <script>
         window.document.onkeydown = function(e) {
@@ -163,9 +175,4 @@
             lightBoxVideo.pause();
         }
     </script>
-
-    <script src="https://ajax.googleapis.com/aj ax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work.-->
-    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.dashbaord')
+@extends('layouts.dashboard.dashboard')
      
 @section('content')
     <div class="row">
@@ -13,11 +13,7 @@
         </div>
     </div>
     
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+    
      
     <table class="table table-bordered">
         <tr>
@@ -49,6 +45,11 @@
         </tr>
         @endforeach
     </table>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     
     {!! $soons->links() !!}
 

@@ -9,10 +9,12 @@ use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SoonController;
 use App\Http\Controllers\TheaterController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\ShowtimeController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -25,19 +27,20 @@ use App\Models\Product;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
+// Route::get('/showtime', [HomeController::class, 'index']);
 Route::get('/comingsoon', [SoonfrontController::class, 'index']);
-// Route::get('/comingsoon', function(){
+Route::get('/showtime', [ShowtimeController::class, 'index']);
+// Route::get('/showtime', function(){
    
     
-//     return view('frontend.comingsoon');
+//     return view('frontend.showtime');
 // });
-
 Route::get('/moviedetail/{id}', [ MovieController::class,'show'])->name('moviedetail');
+Route::get('/contact', [ContactUsController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.store');
 
 
-Route::get('/contact', [ContactUsFormController::class, 'createForm']);
-Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm']);
 
 
 Auth::routes();
@@ -48,7 +51,6 @@ All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-  
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
@@ -58,12 +60,12 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::resource('products', ProductController::class);
     Route::resource('soons', SoonController::class);
     Route::resource('seats', SeatController::class);
     Route::resource('theaters', TheaterController::class);
+    Route::resource('contacts',ContactController::class);
     Route::controller(SliderController::class)->group(function(){
         Route::get('sliders', 'index');
         Route::post('sliders/store', 'store')->name('sliders.store');

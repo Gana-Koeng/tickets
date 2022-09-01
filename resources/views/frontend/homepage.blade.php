@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -70,48 +70,47 @@
                     <a href="{{ asset('/comingsoon') }}"> Coming soon </a>
                 </ul>
             </div>
-
             <div class="card-showing swiper">
                 {{-- =swiper --}}
-                
-                    @php
-                        $countProduct = $products->count();
-                        $rows = $countProduct / 2;
-                    @endphp
+                @php
+                    $countProduct = $products->count();
+                    $rows = $countProduct / 2;
+                @endphp
 
-                    @foreach ($products as $product)
-                        @if ($loop->first || $loop->index === $rows)
-                            <div class="slide-content">
-                                <div class="card-wrapper swiper-wrapper">
-                        @endif
-                                
-                                <div class="card swiper-slide"
-                                    onclick="window.location.href='/moviedetail/'+{{ $product->id }}">
+                @foreach ($products as $product)
+                    @if ($loop->first || $loop->index === $rows)
+                        <div class="slide-content">
+                            <div class="card-wrapper swiper-wrapper">
+                                @endif
+                                <div class="card swiper-slide" onclick="window.location.href='/'+{{ $product->id }}">
                                     <div class="image-content">
                                         <div class="card-image">
                                             <img src="{{ asset('../image/' . $product->image) }}" alt="" class="card-img">
                                         </div>
                                     </div>
                                     <div class="card-content">
+
                                         <p>{{ $product->date }}</p>
                                         <h4>{{ $product->name }}</h4>
                                         <h5>{{ $product->duration }}</h5>
+
                                     </div>
                                 </div>
-                                
 
-                        @if ($loop->index ===  $rows - 1 || $loop->last)
-                                </div>
+                                @if ($loop->index === $rows - 1 || $loop->last)
                             </div>
-                        @endif
-                    @endforeach
-
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
+                        </div>
+                    @endif
+                @endforeach
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
             </div>
+        </div>
+    </div>
+           
 
-            {{-- <div class="slide-content">
+    {{-- <div class="slide-content">
                 <div class="slider-wrapper">
                     <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
                         style="cursor: pointer">
@@ -142,14 +141,13 @@
                 <div class="swiper-pagination"></div>
 
             </div> --}}
-            {{-- <div class="about-us">
+    {{-- <div class="about-us">
 
             </div> --}}
 
 
 
-        </div>
-    </div>
+
     <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {
