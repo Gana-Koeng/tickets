@@ -1,9 +1,9 @@
-<p> composer update </p>
-<p> copy env and config </p>
-<p> php artisan key:generate </p>
-<p> php artisan migrate </p>
-<p> npm run install && npm run dev </p>
-<p> php artisan serve </p>
+<p> =>composer update </p>
+<p> =>copy env and config </p>
+<p> =>php artisan key:generate </p>
+<p> =>php artisan migrate </p>
+<p> =>npm run install && npm run dev </p>
+<p> =>php artisan serve </p>
 
 
 
