@@ -24,7 +24,8 @@
             </div>
             <div class="item">
                 <div class="fill third-slide">
-                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BMWM0NjQ0M2QtYmQ4OS00ZGM4LWExYzEtMWZmNGE3NTZkMjYyXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BMWM0NjQ0M2QtYmQ4OS00ZGM4LWExYzEtMWZmNGE3NTZkMjYyXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg') }}"
+                        alt="">
                 </div>
             </div>
             <div class="item">
@@ -34,22 +35,26 @@
             </div>
             <div class="item">
                 <div class="fill fifth-slide">
-                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNmExYTM4YmYtNWExZS00NTZiLWJhNTEtMzg4NDNhYTZjZDA1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNmExYTM4YmYtNWExZS00NTZiLWJhNTEtMzg4NDNhYTZjZDA1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg') }}"
+                        alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill sixth-slide">
-                    <img src="{{ asset('https://www.cnet.com/a/img/FGfhd5a7x4Xvc62J-qOnx4ikqmU/u003d/940x0/2019/05/11/c4743e02-efa4-442b-9827-7fac2998385e/john-wick-3-review-promo.jpg') }}" alt="">
+                    <img src="{{ asset('https://www.cnet.com/a/img/FGfhd5a7x4Xvc62J-qOnx4ikqmU/u003d/940x0/2019/05/11/c4743e02-efa4-442b-9827-7fac2998385e/john-wick-3-review-promo.jpg') }}"
+                        alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill seventh-slide">
-                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNTAzYzk0MzktY2Y2MC00YWIwLTllODktYWYwNjI3ZjY3NGY5XkEyXkFqcGdeQWpnYW1i._V1_.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNTAzYzk0MzktY2Y2MC00YWIwLTllODktYWYwNjI3ZjY3NGY5XkEyXkFqcGdeQWpnYW1i._V1_.jpg') }}"
+                        alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill eigth-slide">
-                    <img src="{{ asset('https://www.indiewire.com/wp-content/uploads/2019/07/top-gun.jpg') }}" alt="">
+                    <img src="{{ asset('https://www.indiewire.com/wp-content/uploads/2019/07/top-gun.jpg') }}"
+                        alt="">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -76,15 +81,10 @@
                     $countProduct = $products->count();
                     $rows = $countProduct / 2;
                 @endphp
-<<<<<<< HEAD
-=======
-
->>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
                 @foreach ($products as $product)
                     @if ($loop->first || $loop->index === $rows)
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
-<<<<<<< HEAD
                     @endif
                     <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{ $product->id }}">
                         <div class="image-content">
@@ -99,33 +99,23 @@
                         </div>
                     </div>
                     @if ($loop->index === $rows - 1 || $loop->last)
-=======
-                                @endif
-                                <div class="card swiper-slide" onclick="window.location.href='/'+{{ $product->id }}">
-                                    <div class="image-content">
-                                        <div class="card-image">
-                                            <img src="{{ asset('../image/' . $product->image) }}" alt="" class="card-img">
-                                        </div>
-                                    </div>
-                                    <div class="card-content">
-
-                                        <p>{{ $product->date }}</p>
-                                        <h4>{{ $product->name }}</h4>
-                                        <h5>{{ $product->duration }}</h5>
-
-                                    </div>
-                                </div>
-
-                                @if ($loop->index === $rows - 1 || $loop->last)
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/'+{{ $product->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('../image/' . $product->image) }}" alt="" class="card-img">
                             </div>
                         </div>
+                        <div class="card-content">
 
-                    @endif
-                @endforeach
-                    <div class="swiper-button-next swiper-navBtn"></div>
-                    <div class="swiper-button-prev swiper-navBtn"></div>
-                    <div class="swiper-pagination"></div>
->>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
+                            <p>{{ $product->date }}</p>
+                            <h4>{{ $product->name }}</h4>
+                            <h5>{{ $product->duration }}</h5>
+
+                        </div>
+                    </div>
+
+                    @if ($loop->index === $rows - 1 || $loop->last)
             </div>
         </div>
         @endif
@@ -134,11 +124,6 @@
         <div class="swiper-button-prev swiper-navBtn"></div>
         <div class="swiper-pagination"></div>
     </div>
-
-
-    </div>
-    </div>
-           
 
 
     {{-- <div class="slide-content">
