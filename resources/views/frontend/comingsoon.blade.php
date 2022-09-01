@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<<<<<<< HEAD
     <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+=======
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -74,6 +78,14 @@
             </div>
 
             {{-- Old swiper --}}
+
+            <div class="card-coming swiper">
+                {{-- =swiper --}}
+                @php
+                    $countSoon = $soons->count();
+                    $rows = $countSoon / 2;
+                @endphp
+
             <div class="card-showing swiper">
                 {{-- =swiper --}}
                 @php
@@ -97,17 +109,51 @@
                     </div>
                     @if ($loop->index === $rows - 1 || $loop->last)
             </div>
+<<<<<<< HEAD
+=======
+            {{-- <div class="card swiper-slide">
+                            <div class="image-content">
+>>>>>>> eb5870a37d40e71ee1d7ee41c998ca787df9c5f8
+
+                @foreach ($soons as $soon)
+                    @if ($loop->first || $loop->index === $rows)
+                        <div class="slide-content">
+                            <div class="card-wrapper swiper-wrapper">
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{ $soon->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+
+                            <h4>{{ $soon->name }}</h4>
+
+                        </div>
+                    </div>
+
+                    @if ($loop->index === $rows - 1 || $loop->last)
+            </div>
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
         </div>
         @endif
         @endforeach
         <div class="swiper-button-next swiper-navBtn"></div>
         <div class="swiper-button-prev swiper-navBtn"></div>
         <div class="swiper-pagination"></div>
+<<<<<<< HEAD
     </div>
 
     </div>
     </div>
     {{-- slide --}}
+=======
+    </div>
+    </div>
+    </div>
+
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
     <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {
@@ -141,11 +187,19 @@
             }
         });
     </script>
+<<<<<<< HEAD
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+=======
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work.-->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
     {{-- video link --}}
     <script>
         window.document.onkeydown = function(e) {
@@ -172,9 +226,4 @@
             lightBoxVideo.pause();
         }
     </script>
-
-    <script src="https://ajax.googleapis.com/aj ax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work.-->
-    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 @endsection

@@ -78,6 +78,17 @@ header .header-top .bar-top-right {
     margin-left: 20px;
 }
 
+.bar-top-right .button-login {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px 15px 0px 15px;
+    background-color: #515151;
+    border-radius: 5px;
+    color: white;
+    margin-left: 30px;
+    font-size: 18px;
+}
+
 .bar-top-right .dropdown {
 
     padding-top: 10px;
@@ -86,6 +97,91 @@ header .header-top .bar-top-right {
 #navbarDropdown {}
 
 .bar-top-right .nav-link {
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    font-size: 18px;
+    position: fixed;
+    margin-left: 30px;
+
+}
+
+.bar-top-right .nav-link:hover {
+    background-color: grey;
+}
+
+/* dropdown menu */
+.bar-top-right .dropdown-item {
+    margin-top: 10px;
+    background-color: #515151;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.bar-top-right .dropdown-menu {
+    background-color: #515151;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+.bar-top-right .dropdown-item:hover {
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+}
+
+.bar-top-right .button-login:hover,
+.bar-top-right .button-register:hover
+
+/* .bar-top-right .dropdown:hover  */
+    {
+    background-color: rgb(0, 130, 125);
+
+}
+
+.bar-top-right a,
+.button {
+    font-family: "Coda", cursive;
+    font-weight: 100px;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.bar-top-right button {
+    /* background-color: #515151; */
+    justify-content: space-between;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.bar-top-right .button-register {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px 15px 0px 15px;
+    background-color: #d3b74b;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.bar-top-right .dropdown {
+
+    padding-top: 10px;
+}
+
+#navbarDropdown {}
+
+.bar-top-right .nav-link {
+    background-color: #515151;
     border-radius: 5px;
     padding: 10px 15px 10px 15px;
     font-size: 18px;

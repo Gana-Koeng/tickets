@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.dashboard.dashbaord')
+=======
+@extends('layouts.dashboard.dashboard')
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
    
 @section('content')
     <div class="row">
@@ -44,5 +48,9 @@
             </div>
         </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
     </div>
 @endsection

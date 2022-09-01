@@ -23,12 +23,12 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/load.css') }} ">
-
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     {{-- swiper css --}}
 
     {{-- navbar drop down --}}
     {{-- <link href="https://cdn.jsdelivr.net/npmwsss/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -40,14 +40,25 @@
     <!-- ARCHIVES CSS -->
     {{-- loading --}}
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 
+    {{-- link icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+    </style>
 </head>
 
 <body style="background-color: #393939">
-    <div class="loading-body" style="display: none;">   
+    <div class="loading-body" style="display: none;">
         <div class="loader">
         </div>
-         </div>
+    </div>
     <header>
         <div class="header-top">
             <div class="bar-top-left">
@@ -63,44 +74,57 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
+                    ​​ ​​​ ​​​
                 @else
                     <ul>
+                        <ul>
+                            <div class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" ​​​​​​
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>​​​​
 
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" style="margin-top:10px;"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
-                                    class="img-xs rounded-circler" style="border-radius: 50%;width: 30px;height: 30px;">
-                                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
-                                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="/editprofile">
-                                    {{ 'Edit account' }}
-                                </a><br>
-                                <a class="dropdown-item" href="/admin/home">
-                                    {{ auth()->user()->name }}
-                                </a><br>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        style="margin-top:10px;" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" v-pre>
+                                        <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
+                                            class="img-xs rounded-circler"
+                                            style="border-radius: 50%;width: 30px;height: 30px;">
+                                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                                        </p>
+                                        <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                        aria-labelledby="profileDropdown">
+                                        <a class="dropdown-item" href="/editprofile">
+                                            {{ 'Edit account' }}
+                                        </a><br>
+                                        <a class="dropdown-item" href="/admin/home">
+                                            {{ auth()->user()->name }}
+                                        </a><br>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    {{ 'Logout' }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                @endguest
+                                            {{ 'Logout' }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                        </ul>
+                </div>
             </div>
+            </ul>
+        @endguest
+        </div>
         </div>
         <div class="header-bottom">
-            <a href="/">Home</a>
-            <a href="/showtime">Showtime</a>
-            <a href="/comingsoon">Coming Soon</a>
+            <a href="{{ asset('/') }}">Home</a>
+            <a href="{{ asset('/showtime') }}">Showtime</a>
+            <a href="{{ asset('/comingsoon') }}">Coming Soon</a>
             <a href="/contact">Contact Us</a>
         </div>
 
@@ -122,8 +146,8 @@
 
                 <a href="/">Home</a><br>
                 <a href="/">Now Showing</a><br>
-                <a href="/">Coming Soon</a><br>
-                <a href="/">Contact Us</a>
+                <a href="/comingsoon">Coming Soon</a><br>
+                <a href="/contact">Contact Us</a>
             </div>
 
             <div class="top-middle-footer">
@@ -193,13 +217,13 @@
         });
     </script> --}}
 
-        {{-- ------page load------ --}}
-        <script>
-            $(window).on("load", function(e) {
-                console.log('jhhhhhhhhh');
-                $(".loading-body").fadeOut("slow");
-            })
-        </script>
+    {{-- ------page load------ --}}
+    <script>
+        $(window).on("load", function(e) {
+            console.log('jhhhhhhhhh');
+            $(".loading-body").fadeOut("slow");
+        })
+    </script>
 </body>
 
 

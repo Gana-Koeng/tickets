@@ -1,5 +1,4 @@
-@extends('layouts.dashboard.dashbaord')
-
+@extends('layouts.dashboard.dashboard')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">

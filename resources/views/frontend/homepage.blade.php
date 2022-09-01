@@ -70,17 +70,21 @@
                     <a href="{{ asset('/comingsoon') }}"> Coming soon </a>
                 </ul>
             </div>
-
             <div class="card-showing swiper">
                 {{-- =swiper --}}
                 @php
                     $countProduct = $products->count();
                     $rows = $countProduct / 2;
                 @endphp
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
                 @foreach ($products as $product)
                     @if ($loop->first || $loop->index === $rows)
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
+<<<<<<< HEAD
                     @endif
                     <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{ $product->id }}">
                         <div class="image-content">
@@ -95,6 +99,33 @@
                         </div>
                     </div>
                     @if ($loop->index === $rows - 1 || $loop->last)
+=======
+                                @endif
+                                <div class="card swiper-slide" onclick="window.location.href='/'+{{ $product->id }}">
+                                    <div class="image-content">
+                                        <div class="card-image">
+                                            <img src="{{ asset('../image/' . $product->image) }}" alt="" class="card-img">
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+
+                                        <p>{{ $product->date }}</p>
+                                        <h4>{{ $product->name }}</h4>
+                                        <h5>{{ $product->duration }}</h5>
+
+                                    </div>
+                                </div>
+
+                                @if ($loop->index === $rows - 1 || $loop->last)
+                            </div>
+                        </div>
+
+                    @endif
+                @endforeach
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
+>>>>>>> 0657a322ea9ec2c9809cc642679e8b21b91f01e7
             </div>
         </div>
         @endif
@@ -107,6 +138,48 @@
 
     </div>
     </div>
+           
+
+
+    {{-- <div class="slide-content">
+                <div class="slider-wrapper">
+                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
+                        style="cursor: pointer">
+                        <div class="image-content">
+                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <p>25-July-2022</p>
+                            <h4>Godzilla</h4>
+                            <h5>120 minutes</h5>
+                        </div>
+                    </div>
+                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
+                        style="cursor: pointer">
+                        <div class="image-content">
+                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
+                        </div>
+                        <div class="card-content">
+                            <p>25-July-2022</p>
+                            <h4>Godzilla</h4>
+                            <h5>120 minutes</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+
+            </div> --}}
+    {{-- <div class="about-us">
+
+            </div> --}}
+
+
+
+
+
     <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {

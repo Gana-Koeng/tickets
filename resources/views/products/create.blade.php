@@ -1,8 +1,6 @@
-@extends('layouts.dashboard.dashbaord')
-
+@extends('layouts.dashboard.dashboard')
 @section('content')
     <style>
-
         .form-control::placeholder {
             color: rgb(181, 181, 181);
             opacity: 20;
@@ -24,9 +22,6 @@
         <div class="col-lg-7 margin-tb">
             <div class="float-left">
                 <h2>Add New Movie</h2>
-            </div>
-            <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -81,17 +76,19 @@
             <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="form-group">
                     <strong>Date:</strong>
-                    <input type="date" name="date" class="form-control bg-grey text-light" placeholder="Date">
+                    <input type="date" name="date" class="form-control bg-grey" style="color: rgb(181, 181, 181)"
+                        placeholder="Date">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-7">
+            <div class="col-md-7">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="file" name="image" class="form-control bg-grey" placeholder="Image">
+                    <input type="file" name="image" class="form-control bg-grey" style="color: rgb(181, 181, 181)"
+                        placeholder="Image">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-7 text-right">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-md-7 text-center">
+                <button type="submit" class="btn btn-primary btn-10 col-2">Submit</button>
             </div>
         </div>
 

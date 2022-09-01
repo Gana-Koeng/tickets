@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Soon;
 use App\Models\Theater;
 use App\Models\User;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
   
 class HomeController extends Controller
@@ -29,7 +30,10 @@ class HomeController extends Controller
         $products = Product::all();
         
         return view('frontend.homepage', compact('products'));  
-           
+
+        // $newproducts = Product::select()
+        // ->where('id', '>=', 5)
+        // ->get();
     } 
   
     /**
