@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Soon;
 use App\Models\Theater;
+use App\Models\User;
 use Illuminate\Http\Request;
   
 class HomeController extends Controller
@@ -26,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
+        
         return view('frontend.homepage', compact('products'));  
            
     } 
@@ -40,7 +42,8 @@ class HomeController extends Controller
         $product = Product::get()->count();
         $soon = Soon::get()->count();
         $theater = Theater::get()->count();
-        return view('adminHome',compact('product','soon','theater'));
+        $user = User::get()->count();
+        return view('adminHome',compact('product','soon','theater','user'));
     }
   
     /**

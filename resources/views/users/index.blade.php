@@ -1,20 +1,15 @@
-@extends('users.userlayout')
+@extends('layouts.dashboard.dashbaord')
 
 @section('content')
-<div class="col-lg-12 margin-tb">
-    <div class="pull-left">
-        <a class="btn btn-info" href="/admin/home">back</a>
 
-    </div>
-    <div class="pull-right">
-        <a class="btn btn-success" href="{{ route('users.create') }}"> Create user</a>
-    </div>
-</div>
     <table id="example2" class="table table-bordered table-hover table-striped projects">
         <thead>
             <tr>
                 <th style="width: 1%">
                     ID
+                </th>
+                <th class="text-center">
+                    Image
                 </th>
                 <th class="text-center">
                     Name
@@ -43,6 +38,12 @@
                 <tr>
                     <td>
                         {{ ++$key }}.
+                    </td>
+                    <td class="text-center">
+                        <a>
+                            <img src="/profiles/avatars/{{ Auth::user()->avatar }}" width="100px"> 
+                        </a>
+
                     </td>
                     <td class="text-center">
                         <a>

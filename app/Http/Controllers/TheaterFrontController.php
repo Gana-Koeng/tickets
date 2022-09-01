@@ -46,6 +46,7 @@ class TheaterFrontController extends Controller
      */
     public function show($id)
     {
+    
         $theaters = Theater::all();
         return view('frontend.moviedetail.{id}', compact('theaters'));  
     }

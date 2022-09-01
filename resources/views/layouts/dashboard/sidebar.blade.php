@@ -9,11 +9,12 @@
             <div class="profile-desc">
                 <div class="profile-pic">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">
+                        {{-- <img class=" " src="assets/images/faces/face15.jpg" alt=""> --}}
+                        <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image" class=" img-xs rounded-circle" >
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                        <h5 class="mb-0 font-weight-normal">{{auth()->user()->name}}</h5>
                         <span>Gold Member</span>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
                 <span class="menu-icon">
-                    <i class="mdi mdi-laptop"></i>
+                    <i class="mdi mdi-theater"></i>
                 </span>
                 <span class="menu-title">Theater</span>
                 <i class="menu-arrow"></i>
@@ -96,7 +97,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="sliders">
+            <a class="nav-link" href="/images">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
@@ -104,7 +105,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="/contacts">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
@@ -112,11 +113,19 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="schedules">
+            <a class="nav-link" href="/schedules">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
                 <span class="menu-title">Schedule</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/users">
+                <span class="menu-icon">
+                    <i class="mdi mdi-table-large"></i>
+                </span>
+                <span class="menu-title">Users</span>
             </a>
         </li>
     </ul>

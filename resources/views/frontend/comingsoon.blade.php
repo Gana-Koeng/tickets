@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -29,12 +29,12 @@
             </div>
             <div class="item">
                 <div class="fill forth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('/img/killfather1.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill fifth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('/img/bright1.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
@@ -44,12 +44,12 @@
             </div>
             <div class="item">
                 <div class="fill seventh-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('/img/interstellar1.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill eigth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('/img/pirate1.jpg') }}" alt="">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -76,127 +76,39 @@
             {{-- Old swiper --}}
             <div class="card-showing swiper">
                 {{-- =swiper --}}
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        @foreach ($soons as $soon)
-                        <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{$soon->id}}">
-                            <div class="image-content">
-                                <div class="card-image">
-                                    <img src="{{ asset('/image/' .$soon->image) }}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-
-                                <h4>{{$soon->name}}</h4>
-
+                @php
+                    $countSoon = $soons->count();
+                    $rows = $countSoon / 2;
+                @endphp
+                @foreach ($soons as $soon)
+                    @if ($loop->first || $loop->index === $rows)
+                        <div class="slide-content">
+                            <div class="card-wrapper swiper-wrapper">
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{ $soon->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('/image/' . $soon->image) }}" alt="" class="card-img">
                             </div>
                         </div>
-                        @endforeach
-                    
+                        <div class="card-content">
+                            <h4>{{ $soon->name }}</h4>
+                        </div>
                     </div>
-                </div>
-              
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
+                    @if ($loop->index === $rows - 1 || $loop->last)
             </div>
-            {{-- <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-
-                                <div class="card-image">
-                                    <img src="{{ asset('/img/godzilla.jpg') }}" alt=""
-                                        onclick="lightbox_open();" class="card-img">
-                                </div>
-                            </div>
-
-                            <div class="card-content">
-                                <p>25-July-2022</p>
-                                <h4>Godzilla</h4>
-                                <h5>120 minutes</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-           
-            
         </div>
+        @endif
+        @endforeach
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    </div>
     </div>
     {{-- slide --}}
+    <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {
             var top_header = $(".carousel .fill");
@@ -211,7 +123,7 @@
     </script>
     {{-- Swiper JS --}}
     <script src="js/swiper-bundle.min.js"></script>
-    {{-- swiper --}}
+
     <script>
         var swiper = new Swiper(".slide-content", {
             slidesPerView: 4,
@@ -229,6 +141,11 @@
             }
         });
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
     {{-- video link --}}
     <script>
         window.document.onkeydown = function(e) {

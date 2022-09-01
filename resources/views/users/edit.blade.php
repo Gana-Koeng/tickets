@@ -1,5 +1,4 @@
-@extends('users.userlayout')
-
+@extends('layouts.dashboard.dashbaord')
 @section('content')
     <div class="card card-primary" style="margin: 100px 400px; display: fixed">
         <div class="card-header">
@@ -11,6 +10,11 @@
             @csrf
             @method('PUT')
             <div class="card-body">
+                <div class="form-group">
+                    <label for="avatar">image</label>
+                    <input type="file" class="form-control" name="avatar"
+                        value="{{ $user->avatar }}"id="exampleInputName1" placeholder="image">
+                </div>
                 <div class="form-group">
                     <label for="name">Username</label>
                     <input type="text" class="form-control" name="name"

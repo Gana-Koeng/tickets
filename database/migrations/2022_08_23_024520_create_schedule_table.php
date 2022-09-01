@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('movie_id');
             $table->unsignedBigInteger('theater_id');
-
             $table->foreign('movie_id')->references('id')->on('products');
             $table->foreign('theater_id')->references('id')->on('theaters');
-
             $table->timestamps();
         });
     }

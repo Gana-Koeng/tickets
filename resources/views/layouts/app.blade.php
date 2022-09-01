@@ -7,25 +7,47 @@
     <title>tickets_home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/layout-homepage.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/comingsoon.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/moviedetail.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/load.css') }} ">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- swiper css --}}
-    <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
+
     {{-- navbar drop down --}}
     {{-- <link href="https://cdn.jsdelivr.net/npmwsss/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
+    <!-- ARCHIVES CSS -->
+    {{-- loading --}}
+
+
 </head>
 
 <body style="background-color: #393939">
+    <div class="loading-body" style="display: none;">   
+        <div class="loader">
+        </div>
+         </div>
     <header>
         <div class="header-top">
             <div class="bar-top-left">
@@ -33,51 +55,53 @@
             </div>
 
 
-            <div class="bar-top-right">
+            <div class="bar-top-right ">
                 @guest
-                @if (Route::has('login'))
-                    <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
-                @endif
-                @if (Route::has('register'))
-                    <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
-                @endif
-                    
+                    @if (Route::has('login'))
+                        <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
+                    @endif
+                    @if (Route::has('register'))
+                        <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
+                    @endif
                 @else
-                <ul>    
-                    <li class="nav-item dropdown" style="">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
+                    <ul>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/home">
-                                {{ __('AdminHome') }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" style="margin-top:10px;"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
+                                    class="img-xs rounded-circler" style="border-radius: 50%;width: 30px;height: 30px;">
+                                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
+                                <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                                aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" href="/editprofile">
+                                    {{ 'Edit account' }}
+                                </a><br>
+                                <a class="dropdown-item" href="/admin/home">
+                                    {{ auth()->user()->name }}
+                                </a><br>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                    {{ 'Logout' }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
                 @endguest
             </div>
-            {{-- <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
-                <a href="{{ route('register') }}"><button class="register">Register</button></a> --}}
-
-
         </div>
         <div class="header-bottom">
             <a href="/">Home</a>
             <a href="/showtime">Showtime</a>
             <a href="/comingsoon">Coming Soon</a>
-            <a href="/contactForm">Contact Us</a>
+            <a href="/contact">Contact Us</a>
         </div>
 
         {{-- bootstrap of logo --}}
@@ -89,7 +113,6 @@
         {{-- </main> --}}
 
     </div>
-
 
     <footer>
         <div class="top-footer">
@@ -130,14 +153,10 @@
             <a href="/cookie">Cookie Preferences</a>
         </div>
     </footer>
+
+
+
     {{-- js popup video --}}
-    <script>
-        $(document).on("click", "#cust_btn", function() {
-
-            $("#myModal").modal("toggle");
-
-        })
-    </script>
     <script>
         window.document.onkeydown = function(e) {
             if (!e) {
@@ -164,7 +183,23 @@
         }
     </script>
 
+    {{-- alert Dismissed --}}
+    {{-- <script>
+        $(document).ready(function() {
+            // show the alert
+            $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+                $(".alert").alert('close');
+            });
+        });
+    </script> --}}
 
+        {{-- ------page load------ --}}
+        <script>
+            $(window).on("load", function(e) {
+                console.log('jhhhhhhhhh');
+                $(".loading-body").fadeOut("slow");
+            })
+        </script>
 </body>
 
 

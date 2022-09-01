@@ -22,6 +22,17 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- End layout styles -->
     {{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" /> --}}
+    
+    <style>
+        .invalid-feedback {
+          display: block;
+        }
+        .images-preview-div img
+        {
+            padding: 10px;
+            max-width: 150px;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,6 +79,7 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
+   
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -14,7 +14,7 @@
             </ol>
             <div class="item active">
                 <div class="fill first-slide">
-                    <img src="{{ asset('/img/transformers.jpg') }}" alt="">
+                    <img src="{{ asset('/img/killfather1.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
@@ -24,7 +24,7 @@
             </div>
             <div class="item">
                 <div class="fill third-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BMWM0NjQ0M2QtYmQ4OS00ZGM4LWExYzEtMWZmNGE3NTZkMjYyXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
@@ -34,22 +34,22 @@
             </div>
             <div class="item">
                 <div class="fill fifth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNmExYTM4YmYtNWExZS00NTZiLWJhNTEtMzg4NDNhYTZjZDA1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill sixth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('https://www.cnet.com/a/img/FGfhd5a7x4Xvc62J-qOnx4ikqmU/u003d/940x0/2019/05/11/c4743e02-efa4-442b-9827-7fac2998385e/john-wick-3-review-promo.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill seventh-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('https://m.media-amazon.com/images/M/MV5BNTAzYzk0MzktY2Y2MC00YWIwLTllODktYWYwNjI3ZjY3NGY5XkEyXkFqcGdeQWpnYW1i._V1_.jpg') }}" alt="">
                 </div>
             </div>
             <div class="item">
                 <div class="fill eigth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
+                    <img src="{{ asset('https://www.indiewire.com/wp-content/uploads/2019/07/top-gun.jpg') }}" alt="">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -73,33 +73,39 @@
 
             <div class="card-showing swiper">
                 {{-- =swiper --}}
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        @foreach ($products as $product)
-                        <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{$product->id}}">
-                            <div class="image-content">
-                                <div class="card-image">
-                                    <img src="{{ asset('/image/' .$product->image) }}" alt="" class="card-img">
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <p>{{$product->date}}</p>
-                                <h4>{{$product->name}}</h4>
-                                <h5>{{$product->duration}}</h5>
+                @php
+                    $countProduct = $products->count();
+                    $rows = $countProduct / 2;
+                @endphp
+                @foreach ($products as $product)
+                    @if ($loop->first || $loop->index === $rows)
+                        <div class="slide-content">
+                            <div class="card-wrapper swiper-wrapper">
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{ $product->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('/image/' . $product->image) }}" alt="" class="card-img">
                             </div>
                         </div>
-                        @endforeach
-                    
+                        <div class="card-content">
+                            <p>{{ $product->date }}</p>
+                            <h4>{{ $product->name }}</h4>
+                            <h5>{{ $product->duration }}</h5>
+                        </div>
                     </div>
-                </div>
-              
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
+                    @if ($loop->index === $rows - 1 || $loop->last)
             </div>
-
-
         </div>
+        @endif
+        @endforeach
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    </div>
     </div>
     <!-- /.carousel -->
     <script>
@@ -119,20 +125,20 @@
 
     <script>
         var swiper = new Swiper(".slide-content", {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        slidesPerGroup: 4,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
-      });
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            }
+        });
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

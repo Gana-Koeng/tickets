@@ -3,10 +3,6 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <a class="btn btn-info" href="/admin/home">back</a>
-
-            </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('schedules.create') }}"> Create movie</a>
             </div>
@@ -22,7 +18,7 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Theater_OD</th>
+            <th>Theater_ID</th>
             <th>Movie_ID</th>
 
             <th width="280px">Action</th>
@@ -30,9 +26,9 @@
 
         @foreach ($schedules as $schedule)         
         <tr>
-          <td></td>
+          <td>{{ ++$i }}</td>
             <td>{{ $schedule->theater->theater}}</td>
-            <td>{{ $schedule->movie_id}}</td>
+            <td>{{ $schedule->product->name}}</td>
             <td>
             <form action="{{ route('schedules.destroy',$schedule->id) }}" method="POST">
  

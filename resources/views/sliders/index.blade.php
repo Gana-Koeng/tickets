@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <title>How to Image Upload in Laravel 9</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</h1>
-    
-            <form action="{{ route('sliders.store') }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone">
-                @csrf
-                <div>
-                    <h4>Upload Multiple Image By Click On Box</h4>
-                </div>
-            </form>
-        </div>
+<div class="container mt-4">
+  @if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
     </div>
-</div>
-    
-<script type="text/javascript">
+  @endif
+  <div class="card">
+    <div class="card-header text-center font-weight-bold">
+      <h2>Laravel 9 Image Upload Tutorial</h2>
+    </div>
+    <div class="card-body">
+      <form name="image-upload" id="image-upload" method="post" action="{{url('upload')}}" enctype="multipart/form-data">
+       @csrf
+        <div class="form-group">
+          <label for="exampleInputEmail1">Please Select Image</label>
+          <input type="file" id="image" name="image" class="@error('image') is-invalid @enderror form-control">
+          @error('image')
+              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+          @enderror
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
   
-        Dropzone.autoDiscover = false;
-  
-        var dropzone = new Dropzone('#image-upload', {
-              thumbnailWidth: 200,
-              maxFilesize: 1,
-              acceptedFiles: ".jpeg,.jpg,.png,.gif"
-            });
-  
-</script>
-    
+</div>    
 </body>
 </html>

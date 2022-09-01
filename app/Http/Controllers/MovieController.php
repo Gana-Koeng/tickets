@@ -8,6 +8,7 @@ use App\Models\Theater;
 
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use App\Models\Schedule;
 
 class MovieController extends Controller
 {
@@ -51,12 +52,15 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        $theaters = Theater::get();
 
-        
+        $product = Product::find($id);
+        $theater = Theater::find($id);
+        $schedule = Schedule::find($id);
+
+
+        // $schedules = Schedule::findOrFail($id);
         // $product = $product;
-        return view('frontend.moviedetail', compact('product', 'theaters'));
+        return view('frontend.moviedetail', compact('product', 'theater', 'schedule'));
     }
 
     /**

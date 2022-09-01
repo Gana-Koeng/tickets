@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
-use App\Http\Requests\StoreSliderRequest;
-use App\Http\Requests\UpdateSliderRequest;
+use App\Models\Showtime;
+use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class ShowtimeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('sliders.index');
+        // $showtime = Showtime::all();
+        return view('frontend.showtime');  
+        // , compact('showtimes')
     }
 
     /**
@@ -31,26 +32,21 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSliderRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSliderRequest $request)
+    public function store(Request $request)
     {
-        $image = $request->file('file');
-     
-        $imageName = time().'.'.$image->extension();
-        $image->move(public_path('images'),$imageName);
-     
-        return response()->json(['success'=>$imageName]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Showtime  $showtime
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(Showtime $showtime)
     {
         //
     }
@@ -58,10 +54,10 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Showtime  $showtime
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Showtime $showtime)
     {
         //
     }
@@ -69,11 +65,11 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSliderRequest  $request
-     * @param  \App\Models\Slider  $slider
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Showtime  $showtime
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSliderRequest $request, Slider $slider)
+    public function update(Request $request, Showtime $showtime)
     {
         //
     }
@@ -81,10 +77,10 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Showtime  $showtime
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(Showtime $showtime)
     {
         //
     }
