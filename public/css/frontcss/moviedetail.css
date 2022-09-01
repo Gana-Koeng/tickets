@@ -84,6 +84,7 @@
     background-color: #6a6a6a;
     padding-left: 5%;
     color: white;
+    display: flex;
     border-radius: 10px;
 }
 .theater .theater1 ul {

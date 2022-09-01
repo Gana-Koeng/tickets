@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Theater;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTheaterRequest;
 use App\Http\Requests\UpdateTheaterRequest;
 
@@ -15,7 +16,7 @@ class TheaterController extends Controller
      */
     public function index()
     {
-        $theaters = Theater::latest()->paginate(3);
+        $theaters = Theater::paginate(5);
     
         return view('theaters.index',compact('theaters'))
             ->with('i', (request()->input('page', 1) - 1) * 5); 
@@ -40,7 +41,8 @@ class TheaterController extends Controller
     public function store(StoreTheaterRequest $request)
     {
         $request->validate([
-            'time' => 'required',
+            'theater' => 'required',
+            'time1' => 'required',
         ]);
   
         $input = $request->all();
@@ -69,29 +71,30 @@ class TheaterController extends Controller
      */
     public function edit(Theater $theater)
     {
-        return view('theaters.edit');
+        return view('theaters.edit',compact('theater'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateTheaterRequest  $request
-     * @param  \App\Models\Theater  $theater
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateTheaterRequest $request, Theater $theater)
+    public function update(Request $request, Theater $theater)
     {
-        //
+        $request->validate([
+            'theater' => 'required',
+            'time1' => 'required',
+        ]);
+    
+        $theater->update($request->all());
+    
+        return redirect()->route('theaters.index')
+                        ->with('success','theater updated successfully');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Theater  $theater
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Theater $theater)
     {
-        //
+        $theater->delete();
+    
+        return redirect()->route('theaters.index')
+                        ->with('success','theater deleted successfully');
     }
+    
 }

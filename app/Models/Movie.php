@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
+    public function schedule(){
+        return $this->hasOne(Trip::class);
+    }
 }

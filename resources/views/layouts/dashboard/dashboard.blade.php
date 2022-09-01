@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Phoenix Admin </title>
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
@@ -23,6 +24,7 @@
     {{-- dashboard card --}}
     <link rel="stylesheet" href="{{ asset('/css/backcss/dash.css') }}">
     <!-- End layout styles -->
+
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
     <style>
         .form-control::placeholder {
@@ -49,6 +51,7 @@
             
         }
     </style>
+
 </head>
 
 <body>

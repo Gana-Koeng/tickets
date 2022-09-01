@@ -100,6 +100,7 @@
                                 @if ($loop->index === $rows - 1 || $loop->last)
                             </div>
                         </div>
+
                     @endif
                 @endforeach
                     <div class="swiper-button-next swiper-navBtn"></div>
@@ -109,6 +110,7 @@
         </div>
     </div>
            
+
 
     {{-- <div class="slide-content">
                 <div class="slider-wrapper">
@@ -144,6 +146,7 @@
     {{-- <div class="about-us">
 
             </div> --}}
+
 
 
 

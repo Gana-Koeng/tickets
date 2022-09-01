@@ -74,12 +74,43 @@
             </div>
 
             {{-- Old swiper --}}
+
             <div class="card-coming swiper">
                 {{-- =swiper --}}
                 @php
                     $countSoon = $soons->count();
                     $rows = $countSoon / 2;
                 @endphp
+
+            <div class="card-showing swiper">
+                {{-- =swiper --}}
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        @foreach ($soons as $soon)
+                        <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{$soon->id}}">
+                            <div class="image-content">
+                                <div class="card-image">
+                                    <img src="{{ asset('/image/' .$soon->image) }}" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+
+                                <h4>{{$soon->name}}</h4>
+
+                            </div>
+                        </div>
+                        @endforeach
+                    
+                    </div>
+                </div>
+              
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            {{-- <div class="card swiper-slide">
+                            <div class="image-content">
+>>>>>>> eb5870a37d40e71ee1d7ee41c998ca787df9c5f8
 
                 @foreach ($soons as $soon)
                     @if ($loop->first || $loop->index === $rows)

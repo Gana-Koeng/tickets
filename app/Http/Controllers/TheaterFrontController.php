@@ -1,15 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Movie;
-use App\Models\Product;
 use App\Models\Theater;
+use Illuminate\Http\Request;
 
-use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
-
-class MovieController extends Controller
+class TheaterFrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +13,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
-        return view('frontend.moviedetail', compact('products', 'theaters'));
+        $theaters = Theater::all();
+        return view('frontend.moviedetail.{id}', compact('theaters'));  
     }
 
     /**
@@ -35,10 +30,10 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMovieRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMovieRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -46,26 +41,22 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        $theaters = Theater::get();
-
-        
-        // $product = $product;
-        return view('frontend.moviedetail', compact('product', 'theaters'));
+        $theaters = Theater::all();
+        return view('frontend.moviedetail.{id}', compact('theaters'));  
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie)
+    public function edit($id)
     {
         //
     }
@@ -73,11 +64,11 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMovieRequest  $request
-     * @param  \App\Models\Movie  $movie
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMovieRequest $request, Movie $movie)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +76,10 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $movie)
+    public function destroy($id)
     {
         //
     }
